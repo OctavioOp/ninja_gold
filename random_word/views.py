@@ -11,9 +11,15 @@ def home(request):
     if 'counter' not in request.session:
         request.session['counter'] = 0
 
-    request.session['counter'] += 1
+    #request.session['counter'] += 1
 
-    word = get_random_string(length=14)
+    if request.session['counter'] == 10:
+        word = 'error 404 '
+    else:
+        request.session['counter'] += 1
+        word = get_random_string(length=14)
+
+    
 
     context = {
         'word': word,
