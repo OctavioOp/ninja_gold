@@ -18,5 +18,6 @@ from django.urls import path,include
 
 urlpatterns = [
     path('random', include('random_word.urls')),
+    path('log',include('log_sys.urls')),
     
 ]
