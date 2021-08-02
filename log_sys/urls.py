@@ -6,4 +6,5 @@ urlpatterns = [
     path('',views.login),
     path('/login',views.login),
     path('/home',views.home),
+ #   path('/signin',views.signin),
 ]

@@ -80,3 +80,13 @@ def login(request):
 '''     
 def home(request):
     return render(request,'home.html')
+'''
+def signin(request):
+    if request.method == 'GET':
+        return render(request,'signin.html')
+    else:
+        new_user = {'name' : request.POST['name'],'pass': request.POST['pass']}
+        lista.append(new_user)
+        mensaje = 'Usuario creado'
+        redirect ('/login')
+'''

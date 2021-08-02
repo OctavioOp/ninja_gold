@@ -1,0 +1,15 @@
+body{
+    background-color: black;
+    color: whitesmoke;
+}
+.try{
+    border-style: solid; 
+    border-width: 4px;
+}
+.forma{
+    color: black;
+}
+.oro{
+    color: #D4AF37;
+    padding-top: 5rem;
+}
