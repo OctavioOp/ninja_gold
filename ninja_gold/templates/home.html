@@ -21,6 +21,23 @@
 
 <body>
     <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Coins!</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="../gold/home">Home</a>
+                        <a class="nav-link" href="/gold/bet">Your bet</a>
+                    
+                    </div>
+                </div>
+            </div>
+        </nav>
         <div class="container">
             <div class="row">
                 <div class="col-6">
@@ -98,15 +115,17 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="try overflow-auto my-5 p-2" style="height: 10rem;" id="acciones">
-                <p class="color">Actividades:</p>
-                {% for a in request.session.activities%}
-                <p style="color: {{color}};">{{a}}</p>
+            <a href="../gold/reset" class="btn btn-danger mt-5">reset</a>
+
+            <p class="color mt-5">Activities:</p>
+            <div class="try overflow-auto p-2" style="height: 10rem;" id="acciones">
+
+                {% for act in request.session.activities %}
+                <p class="{% if act.gold > 0 %}text-success{%else%}text-danger{%endif%}">{{act.text}}</p>
                 {% endfor %}
 
             </div>
-            
+
 
         </div>
 

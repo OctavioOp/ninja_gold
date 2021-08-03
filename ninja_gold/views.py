@@ -9,25 +9,21 @@ def home(request):
     coin1 = request.session.get('log')
 
     if int(coin1) > 0:
-        log = 'You win some coins!: '+str(coin1) 
-        color = '#33FF46'
-    elif int(coin1) == 0:
-        log = 'well, continue trying!!'
-        color = '#33D7FF'
+        request.session['activities'].append({
+            'text': 'You win some coins!: '+str(coin1) ,
+            'gold': coin1
+        })
     else:
-        log = 'you loseee ... oohh keep trying!: ' +str(coin1)
-        color = '#FF3C33'
+        request.session['activities'].append({
+            'text': 'you loseee ... oohh keep trying!: ' +str(coin1) ,
+            'gold': coin1
+        })
 
-    request.session['activities'].append(log)
+  
     request.session.save()
-    
 
-    print(log)
     context={
         'coin': coin,
-        'log': log,
-        'coin1': coin1,
-        'color': color
     }
     return render(request,'home.html',context)
 
@@ -56,3 +52,22 @@ def process(request,uri):
     request.session['coin'] = request.session['coin'] + gold
     request.session['log'] = gold 
     return redirect('/gold/home')
+
+def bet(request):
+    if request.method == 'GET':
+        return render(request,'form.html')
+    else:
+
+        bet = request.POST['bet']
+        min_farm = request.POST['min_farm']
+        max_farm = request.POST['max_farm']
+        min_cave = request.POST['min_cave']
+        max_cave = request.POST['min_cave']
+        min_house = request.POST['min_house']
+        max_house = request.POST['min_house']
+        min_casino = request.POST['min_casino']
+        max_casino = request.POST['min_casino']
+        context={
+
+        }
+        return render(request,'home.html',context)
