@@ -1,23 +1,29 @@
 from django.shortcuts import redirect, render
 import random
 
-coin = 0
+
 # Create your views here.
 def home(request):
+    color= ''
     coin  = request.session.get('coin')
     coin1 = request.session.get('log')
 
     if int(coin1) > 0:
-        log = 'Has ganadooo!: '+str(coin1) 
+        log = 'You win some coins!: '+str(coin1) 
+        color = '#33FF46'
     elif int(coin1) == 0:
-        log = 'Bienvenido!!'
+        log = 'well, continue trying!!'
+        color = '#33D7FF'
     else:
-        log = 'Has perdidooooo!: ' +str(coin1)
+        log = 'you loseee ... oohh keep trying!: ' +str(coin1)
+        color = '#FF3C33'
 
     print(log)
     context={
         'coin': coin,
-        'log': log
+        'log': log,
+        'coin1': coin1,
+        'color': color
     }
     return render(request,'home.html',context)
 
