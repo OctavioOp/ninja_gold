@@ -25,44 +25,22 @@ def random1(min,max,num=1):
     gold = random.randrange(min,max,num)
     return gold
 
-def farm(request):
-    gold = random1(10,20,1)
-    
-    print(gold)
-    request.session['coin'] = request.session['coin'] + gold
-    request.session['log'] = gold
-    return redirect('/gold/home')
-
-def farm(request):
-    gold = random1(10,20,1)
-    print(gold)
-    request.session['coin'] = request.session['coin'] + gold
-    request.session['log'] = gold
-    return redirect('/gold/home')
-
-def cave(request):
-    gold = random1(5,10,1)
-    print(gold)
-    request.session['coin'] = request.session['coin'] + gold
-    request.session['log'] = gold
-    return redirect('/gold/home')
-
-def house(request):
-    gold = random1(2,5,1)
-    print(gold)
-    request.session['coin'] = request.session['coin'] + gold
-    request.session['log'] = gold 
-    return redirect('/gold/home')
-
-def casino(request):
-    gold = random1(-50,50,1)
-    print(gold)
-    request.session['coin'] = request.session['coin'] + gold
-    request.session['log'] = gold 
-    return redirect('/gold/home')
-
 def login(request):
     request.session['name']= 'user'
     request.session['coin'] = 0
     request.session['log'] = 0
+    return redirect('/gold/home')
+
+def process(request,uri):
+    if uri == 'farm':
+        gold = random1(10,20,1)
+    elif uri == 'cave':
+        gold = random1(5,10,1)
+    elif uri == 'house':
+        gold = random1(2,5,1)
+    elif uri == 'casino':
+        gold = random1(-50,50,1)
+    print(gold)
+    request.session['coin'] = request.session['coin'] + gold
+    request.session['log'] = gold 
     return redirect('/gold/home')
