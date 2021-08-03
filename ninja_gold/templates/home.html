@@ -98,12 +98,15 @@
                     </div>
                 </div>
             </div>
+            
             <div class="try overflow-auto my-5 p-2" style="height: 10rem;" id="acciones">
                 <p class="color">Actividades:</p>
-                <p style="color: {{color}};">{{log}}</p>
+                {% for a in request.session.activities%}
+                <p style="color: {{color}};">{{a}}</p>
+                {% endfor %}
 
             </div>
-
+            
 
         </div>
 

@@ -18,6 +18,10 @@ def home(request):
         log = 'you loseee ... oohh keep trying!: ' +str(coin1)
         color = '#FF3C33'
 
+    request.session['activities'].append(log)
+    request.session.save()
+    
+
     print(log)
     context={
         'coin': coin,
@@ -35,6 +39,8 @@ def login(request):
     request.session['name']= 'user'
     request.session['coin'] = 0
     request.session['log'] = 0
+    request.session['activities'] = []
+    
     return redirect('/gold/home')
 
 def process(request,uri):
