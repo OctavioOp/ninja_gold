@@ -42,19 +42,19 @@
         <div class="container mt-5 text-center">
             <form method="POST" action="../gold/bet">
                 {% csrf_token %}
-                <span>Your bet!: <input type="number" name="bet" placeholder="1000"></span>
+                <span>Your bet!: <input type="number" name="bet" placeholder="1000" required></span>
                 <hr>
-                <span>low value farm!: <input type="number" name="low_farm" placeholder="-20"></span>
-                <span>high value farm!: <input type="number" name="high_farm" placeholder="20"></span>
+                <span>low value farm!: <input type="number" name="low_farm" placeholder="-20" required></span>
+                <span>high value farm!: <input type="number" name="high_farm" placeholder="20"required></span>
                 <hr>
-                <span>low value cave!: <input type="number" name="low_cave" placeholder="-10"></span>
-                <span>high value cave!: <input type="number" name="high_cave" placeholder="10"></span>
+                <span>low value cave!: <input type="number" name="low_cave" placeholder="-10" required></span>
+                <span>high value cave!: <input type="number" name="high_cave" placeholder="10" required></span>
                 <hr>
-                <span>low value house!: <input type="number" name="low_house" placeholder="-5"></span>
-                <span>high value house!: <input type="number" name="high_house" placeholder="5"></span>
+                <span>low value house!: <input type="number" name="low_house" placeholder="-5" required></span>
+                <span>high value house!: <input type="number" name="high_house" placeholder="5" required></span>
                 <hr>
-                <span>low value casino!: <input type="number" name="low_casino" placeholder="-50"></span>
-                <span>high value casino!: <input type="number" name="high_casino" placeholder="50"></span>
+                <span>low value casino!: <input type="number" name="low_casino" placeholder="-50" required></span>
+                <span>high value casino!: <input type="number" name="high_casino" placeholder="50" required></span>
                 <hr>
 
                 <button class="btn btn-success">Submit</button>

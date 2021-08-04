@@ -18,6 +18,8 @@ def home(request):
             'text': 'you loseee ... oohh keep trying!: ' +str(coin1) ,
             'gold': coin1
         })
+    if coin < 0:
+        return render(request,'lose.html')
 
   
     request.session.save()
